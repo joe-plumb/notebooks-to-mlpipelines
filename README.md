@@ -6,11 +6,11 @@ Notebooks are great in the 'experimental phase' of a data science project - they
 * to ensure code conforms to standards (like PEP8)
 * difficulty in code versioning (e.g. diff). 
 
-Conversely, Azure Machine Learning pipelines help us to industrialize code but they do not run in an interactive way as they are a job submission service. Job submission can be frustrating when we are in the intial phases of a project since we do not get that instant feedback loop like we do from a jupyter notebook. Therefore users are often required to re-factor their notebooks such that they:
+Conversely, Azure Machine Learning pipelines help us to industrialize code but they do not execute in an interactive way as they are submitted to the AzureML execution service. Users that require an interactive experience (notebooks) in the initial phases of a project will often find that they need to re-factor their notebooks to run in an AzureML pipeline. Typical, re-factoring exercises include:
 
-* are converted into a python script (.py file)
-* leverage `argparse` for parameters
-* assumes that a dataset will be mounted by the pipeline (file dataset) or direct method (tabular)
+* converting notebooks to a python script (.py file)
+* using `argparse` for parameters
+* dealing with input datasets to the pipeline (file dataset) or direct method (tabular)
 * handling data between pipeline steps
 
 The purpose of this repo is to provide a template so that a user can get the best of both worlds. Users of this template can use notebooks in an AzureML Compute Instance to develop data prep and training processes in an interactive fashion, but then move those notebooks into a pipeline without having to re-factor. We do this by providing:
